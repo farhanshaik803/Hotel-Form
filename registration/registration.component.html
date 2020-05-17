@@ -1,0 +1,70 @@
+<div class="login-page">
+    <div class="form">
+        <p>register now</p>
+        <form #form="ngForm">
+      <form class="login-form">
+        <input required
+        ngModel
+        name="username"
+        id="username"
+        #username="ngModel"
+        (change)="displayMessage(username)"
+        type="text" 
+        placeholder="username"
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="!username.valid && username.touched">
+          <div *ngIf="username.errors.required">Enter the Username</div>
+       </div>
+        
+        <input required
+        ngModel
+        name="password"
+        id="password"
+        #password="ngModel"
+        (change)="displayMessage(password)"
+        type="number"
+        pattern="[0-9]"
+        minlength="5" 
+        class="form-control"
+        placeholder="password">
+        <div class="alert alert-danger" *ngIf="!password.valid && password.touched">
+          <div *ngIf="password.errors.required">Enter the Password</div>
+          <div *ngIf="password.errors.minlength">Please enter the minimum length of Password </div>
+          <div *ngIf="password.errors.pattern">Enter a valid Password</div>
+        </div>
+
+        <input required
+        ngModel
+        name="email"
+        #email="ngModel"
+        id="email"
+        (change)="displayMessage(email)"
+        type="email" 
+        placeholder="email"
+        class="form-control">
+        <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+          <div *ngIf="email.errors.required">Enter the Email</div>
+       </div>
+
+        <input required
+        ngModel
+        name="phoneno"
+        id="phoneno"
+        #phoneno="ngModel"
+        (change)="displayMessage(phoneno)"
+        pattern="[0-9]"
+        minlength="10"
+        maxlength="10"
+        type="number" placeholder="phoneno">
+        <div class="alert alert-danger" *ngIf="!phoneno.valid && phoneno.touched">
+          <div *ngIf="phoneno.errors.required">Enter the Phone Number</div> 
+          <div *ngIf="phoneno.errors.pattern">Enter valid Phone Number</div>
+          </div>
+        <button>Register</button>
+        <p class="message">Registered? <a href="/login">Login to Account</a></p>
+      </form>
+      </form>
+    </div>
+  </div>
+
+ 
